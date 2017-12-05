@@ -58,7 +58,7 @@ configuration: ## Section
     ## you're not using SSL. Also there is no guarantee that posting to
     ## services will be possible if SSL is disabled.
     ## Do not change this default unless you are sure!
-    #require_ssl: true
+    require_ssl: false
 
     ## Single-process mode (default=false).
     ## If set to true, Diaspora will work with just the appserver (Unicorn by
@@ -125,10 +125,10 @@ configuration: ## Section
       ## Serve static assets via the appserver (default=false).
       ## This is highly discouraged for production use. Let your reverse
       ## proxy/webserver do it by serving the files under public/ directly.
-      #serve: false
+      serve: false
 
       ## Upload your assets to S3 (default=false).
-      #upload: false
+      #upload: true
 
       ## Specify an asset host. Ensure it does not have a trailing slash (/).
       #host: http://cdn.example.org/diaspora
@@ -165,7 +165,7 @@ configuration: ## Section
     ## Where the appserver should listen to (default=unix:tmp/diaspora.sock)
     #listen: 'unix:tmp/diaspora.sock'
     #listen: 'unix:/run/diaspora/diaspora.sock'
-    #listen: '127.0.0.1:3000'
+    listen: '0.0.0.0:3000'
 
     ## Set the path for the PID file of the unicorn master process (default=none)
     #pid: '/run/diaspora/diaspora.pid'
@@ -173,7 +173,7 @@ configuration: ## Section
     ## Rails environment (default='development').
     ## The environment in which the server should be started by default.
     ## Change this to 'production' if you wish to run a production environment.
-    #rails_environment: 'development'
+    rails_environment: 'development'
 
     ## Write unicorn stderr and stdout log.
     #stderr_log: '/usr/local/app/diaspora/log/unicorn-stderr.log'
@@ -225,7 +225,7 @@ configuration: ## Section
 
       ## Start built-in XMPP server (default=true).
       ## In case you want to run your own server, you should disable it.
-      #enabled: false
+      enabled: false
 
       ## Set the directory in which to look for virtual hosts TLS certificates.
       ## Check documentation on how to generate or configure your existing
@@ -418,7 +418,7 @@ configuration: ## Section
 
     ## Pod name (default="diaspora*")
     ## The pod name displayed in various locations, including the header.
-    #pod_name: "diaspora*"
+    pod_name: "tsar"
 
     ## Allow registrations (default=true)
     ## Set this to false to prevent people from signing up to your pod
